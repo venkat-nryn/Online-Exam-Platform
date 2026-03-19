@@ -54,5 +54,3 @@ A production-level online examination system with separate admin and student pan
 - **Axios** - HTTP client
 - **Chart.js** - Analytics charts
 - **React Hot Toast** - Notifications
-
-## 📁 Project Structure
