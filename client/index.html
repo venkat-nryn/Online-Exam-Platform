@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional Online Exam Conducting Platform with secure examination environment" />
+    <meta name="keywords" content="exam, online exam, test, assessment, education" />
+    <meta name="author" content="Online Exam Platform" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Online Exam Platform" />
+    <meta property="og:description" content="Secure and professional online examination system" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://examplatform.com" />
+    <meta property="og:image" content="/og-image.png" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Online Exam Platform" />
+    <meta name="twitter:description" content="Secure and professional online examination system" />
+    <meta name="twitter:image" content="/twitter-image.png" />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#0d6efd" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Exam Platform" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome for icons (fallback) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    
+    <title>Online Exam Platform - Secure Examination System</title>
+    
+    <style>
+      /* Critical CSS for initial page load */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      /* Loading animation for initial page load */
+      .initial-loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+      }
+      
+      .initial-loader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+      }
+      
+      .loader-content {
+        text-align: center;
+        color: white;
+      }
+      
+      .loader-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: white;
+        animation: spin 1s ease-in-out infinite;
+        margin: 0 auto 20px;
+      }
+      
+      .loader-text {
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 2px;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      
+      .loader-subtext {
+        font-size: 1rem;
+        opacity: 0.8;
+        margin-top: 10px;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      
+      /* Dark mode support */
+      @media (prefers-color-scheme: dark) {
+        body.dark-mode {
+          background-color: #1a1a1a;
+          color: #f8f9fa;
+        }
+      }
+      
+      /* Print styles for result pages */
+      @media print {
+        .no-print {
+          display: none !important;
+        }
+        
+        .print-only {
+          display: block !important;
+        }
+        
+        body {
+          background-color: white;
+          color: black;
+        }
+      }
+      
+      /* Accessibility - Reduce motion */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
+  </head>
+  
+  <body>
+    <!-- Initial loader that will be removed by React -->
+    <div id="initial-loader" class="initial-loader">
+      <div class="loader-content">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">Online Exam Platform</div>
+        <div class="loader-subtext">Loading secure examination environment...</div>
+      </div>
+    </div>
+    
+    <!-- Root element for React -->
+    <div id="root"></div>
+    
+    <!-- Script to remove loader once React is loaded -->
+    <script>
+      (function() {
+        // Remove the initial loader when the page is fully loaded
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            const loader = document.getElementById('initial-loader');
+            if (loader) {
+              loader.classList.add('fade-out');
+              setTimeout(function() {
+                loader.style.display = 'none';
+              }, 500);
+            }
+          }, 1000);
+        });
+        
+        // Check for saved dark mode preference
+        const savedDarkMode = localStorage.getItem('darkMode') === 'true';
+        if (savedDarkMode) {
+          document.body.classList.add('dark-mode');
+        }
+        
+        // Add no-js fallback
+        document.documentElement.className = 'js-enabled';
+      })();
+    </script>
+    
+    <!-- Fallback for users without JavaScript -->
+    <noscript>
+      <div style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; display: flex; justify-content: center; align-items: center; z-index: 10000;">
+        <div style="text-align: center; padding: 20px;">
+          <h2 style="color: #dc3545; margin-bottom: 20px;">JavaScript Required</h2>
+          <p style="color: #6c757d; margin-bottom: 20px;">This application requires JavaScript to function properly. Please enable JavaScript in your browser settings.</p>
+          <a href="https://www.enable-javascript.com/" target="_blank" rel="noopener noreferrer" style="color: #0d6efd; text-decoration: none;">Learn how to enable JavaScript →</a>
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- Script to handle fullscreen exit prevention for exams -->
+    <script>
+      // This script runs before React to prevent accidental fullscreen exits
+      (function() {
+        // Check if we're in an exam
+        const isExamPage = window.location.pathname.includes('/take-exam/');
+        
+        if (isExamPage) {
+          // Prevent default fullscreen exit behaviors
+          document.addEventListener('keydown', function(e) {
+            // Prevent F11
+            if (e.key === 'F11') {
+              e.preventDefault();
+            }
+            // Prevent Escape (but allow in development)
+            if (e.key === 'Escape' && !window.location.hostname.includes('localhost')) {
+              e.preventDefault();
+            }
+          });
+          
+          // Warn before closing/refreshing
+          window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = 'Are you sure you want to leave? Your exam progress may be lost.';
+            return e.returnValue;
+          });
+        }
+      })();
+    </script>
+    
+    <!-- DNS prefetch for API domain -->
+    <link rel="dns-prefetch" href="http://localhost:5000" />
+    <link rel="preconnect" href="http://localhost:5000" />
+
+    <!-- Vite entrypoint -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

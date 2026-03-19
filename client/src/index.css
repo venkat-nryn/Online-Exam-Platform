@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* Utility Classes */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+/* Status Colors */
+.status-upcoming {
+  color: #ffc107;
+  background-color: #fff3cd;
+}
+
+.status-live {
+  color: #198754;
+  background-color: #d1e7dd;
+}
+
+.status-completed {
+  color: #6c757d;
+  background-color: #e2e3e5;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,346 @@
+/* Global Styles */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #0dcaf0;
+  --light-color: #f8f9fa;
+  --dark-color: #212529;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0b5ed7;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link {
+  transition: all 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+  transform: translateX(5px);
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Styles */
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styles */
+.form-control, .form-select {
+  border-radius: 5px;
+  border: 1px solid #dee2e6;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Table Styles */
+.table {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead th {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 500;
+  border: none;
+}
+
+/* Badge Styles */
+.badge {
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+/* Timer Styles */
+.timer-container {
+  background: linear-gradient(135deg, var(--primary-color), #0b5ed7);
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.timer-display {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.timer-warning {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Question Palette Styles */
+.question-palette {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.question-number.answered {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.question-number.visited {
+  background-color: var(--warning-color);
+  color: black;
+}
+
+.question-number.not-visited {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.question-number.current {
+  border: 2px solid var(--primary-color);
+  transform: scale(1.1);
+}
+
+.question-number:hover {
+  transform: scale(1.1);
+}
+
+/* Exam Interface Styles */
+.exam-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.question-container {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.option-item {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+  padding: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.option-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.option-item.selected {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dashboard-card .icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.dashboard-card .value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.dashboard-card .label {
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Loading Spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+  }
+  
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
+  
+  .options-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .timer-display {
+    font-size: 1.5rem;
+  }
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.dark-mode .card {
+  background-color: #2c3034;
+  color: white;
+}
+
+.dark-mode .table {
+  background-color: #2c3034;
+  color: white;
+}
+
+.dark-mode .form-control {
+  background-color: #3c4044;
+  border-color: #4c5054;
+  color: white;
+}
+
+/* Animation Classes */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+}
